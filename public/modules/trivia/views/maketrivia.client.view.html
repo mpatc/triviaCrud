@@ -10,8 +10,21 @@
 				by
 				<span data-ng-bind="article.user.displayName"></span>
 			</small>
+			<h5>Play Game? <button ngclick="open()" class="btn btn-lg btn-success">Play Game?</button></h5>
 			<h4 class="list-group-item-heading" data-ng-bind="article.category"></h4>
 			<p class="list-group-item-text" data-ng-bind="article.question"></p>
+			<div modal="showModal" close="cancel()">
+				<div class="modal-header">
+					<h4>Modal Dialog</h4>
+				</div>
+				<div class="modal-body">
+					<p>Example paragraph with some text.</p>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-success" ng-click="ok()">Okay</button>
+					<button class="btn" ng-click="cancel()">Cancel</button>
+				</div>
+			</div>
 		</a>
 	</div>
 	<div class="alert alert-warning text-center" data-ng-if="articles.$resolved && !articles.length">
