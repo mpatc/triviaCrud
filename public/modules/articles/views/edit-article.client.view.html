@@ -1,0 +1,44 @@
+<section data-ng-controller="ArticlesController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1>Edit Article</h1>
+	</div>
+	<div class="col-md-12">
+		<form name="articleForm" class="form-horizontal" data-ng-submit="update(articleForm.$valid)" novalidate>
+			<fieldset>
+				<div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.category.$invalid}">
+					<label class="control-label" for="category">Category</label>
+					<div class="controls">
+						<input name="category" type="text" data-ng-model="article.category" id="category" class="form-control" placeholder="Category" required>
+					</div>
+					<div ng-show="submitted && articleForm.category.$invalid" class="help-block">
+						<p ng-show="articleForm.category.$error.required" class="text-danger">Category is required</p>
+					</div>
+				</div>
+				<div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.question.$invalid}">
+					<label class="control-label" for="question">Question</label>
+					<div class="controls">
+						<textarea name="question" data-ng-model="article.question" id="question" class="form-control" cols="30" rows="10" placeholder="Question" required></textarea>
+					</div>
+					<div ng-show="submitted && articleForm.question.$invalid" class="help-block">
+						<p ng-show="articleForm.question.$error.required" class="text-danger">Question is required</p>
+					</div>
+				</div>
+				<div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.answer.$invalid}">
+					<label class="control-label" for="answer">Answer</label>
+					<div class="controls">
+						<textarea name="answer" data-ng-model="article.answer" id="answer" class="form-control" cols="30" rows="10" placeholder="Answer" required></textarea>
+					</div>
+					<div ng-show="submitted && articleForm.answer.$invalid" class="help-block">
+						<p ng-show="articleForm.answer.$error.required" class="text-danger">Answer is required</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="submit" value="Update" class="btn btn-default">
+				</div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</section>

@@ -1,0 +1,35 @@
+<section data-ng-controller="ArticlesController">
+	<div class="page-header">
+		<h1>New Article</h1>
+	</div>
+	<div class="col-md-12">
+		<form name="articleForm" class="form-horizontal" data-ng-submit="create()" novalidate>
+			<fieldset>
+				<div class="form-group" ng-class="{ 'has-error': articleForm.category.$dirty && articleForm.category.$invalid }">
+					<label class="control-label" for="category">Category</label>
+					<div class="controls">
+						<input name="category" type="text" data-ng-model="category" id="category" class="form-control" placeholder="Category" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="question">Question</label>
+					<div class="controls">
+						<textarea name="question" data-ng-model="question" id="question" class="form-control" cols="30" rows="10" placeholder="Question"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="answer">Answer</label>
+					<div class="controls">
+						<textarea name="answer" data-ng-model="answer" id="answer" class="form-control" cols="30" rows="10" placeholder="Answer"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="submit" class="btn btn-default">
+				</div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</section>
